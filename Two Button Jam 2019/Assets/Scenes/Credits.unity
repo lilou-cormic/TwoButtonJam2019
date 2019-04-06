@@ -272,12 +272,17 @@ PrefabInstance:
     - target: {fileID: 2901855970248396497, guid: 8730914f11f3ee04b96f96df930974c6,
         type: 3}
       propertyPath: m_margin.w
-      value: -82.28158
+      value: -39.88958
       objectReference: {fileID: 0}
     - target: {fileID: 2901855970248396497, guid: 8730914f11f3ee04b96f96df930974c6,
         type: 3}
       propertyPath: m_fontColor32.rgba
-      value: 4285484253
+      value: 4287464773
+      objectReference: {fileID: 0}
+    - target: {fileID: 2901855970248396497, guid: 8730914f11f3ee04b96f96df930974c6,
+        type: 3}
+      propertyPath: m_firstOverflowCharacterIndex
+      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8730914f11f3ee04b96f96df930974c6, type: 3}
@@ -325,7 +330,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: -20, y: -20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &207660296
 MonoBehaviour:
@@ -859,6 +864,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ffb838e4bc2c69544b81a15603ad1398, type: 3}
+--- !u!1 &1224566426 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4184024935727083693, guid: ffb838e4bc2c69544b81a15603ad1398,
+    type: 3}
+  m_PrefabInstance: {fileID: 1224566425}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1311059482
 GameObject:
   m_ObjectHideFlags: 0
@@ -895,7 +906,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.20000002, g: 0.17254902, b: 0.3137255, a: 1}
   m_projectionMatrixMode: 1
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
@@ -1203,7 +1214,7 @@ MonoBehaviour:
   m_Script: {fileID: -619905303, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 1224566426}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!4 &1566340224

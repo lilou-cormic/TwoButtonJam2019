@@ -14,8 +14,8 @@ TagManager:
   - 
   - 
   - PostProcessing
-  - 
-  - 
+  - Player
+  - Enemy
   - 
   - 
   - 
@@ -38,6 +38,18 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 2468592195
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Player
+    uniqueID: 3368505087
+    locked: 0
+  - name: Enemy
+    uniqueID: 230030437
+    locked: 0
+  - name: Points
+    uniqueID: 1768618119
     locked: 0
