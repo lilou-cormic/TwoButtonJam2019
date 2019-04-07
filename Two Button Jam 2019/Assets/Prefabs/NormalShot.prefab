@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8644528157678580624}
   - component: {fileID: 7887804405962730804}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: Gfx
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,9 +89,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2379155307231102870}
   - component: {fileID: 5219422802247191355}
-  - component: {fileID: 260200044802040034}
   - component: {fileID: 4225827383489090894}
-  m_Layer: 9
+  - component: {fileID: 1575217602907267892}
+  m_Layer: 11
   m_Name: NormalShot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -134,21 +134,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!114 &260200044802040034
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6722363601476649279}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 245dce5129bc92e44b3f3bbabc3f53e6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Speed: 9
-  Rampage: 0
-  ShootSound: {fileID: 8300000, guid: 2d8c6f75dcb2d704d952a43998c14f61, type: 3}
 --- !u!70 &4225827383489090894
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -163,5 +148,22 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.09632148, y: 0.5474549}
+  m_Size: {x: 0.25, y: 0.55}
   m_Direction: 0
+--- !u!114 &1575217602907267892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6722363601476649279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4b0957c65601ec46af30be08b905dae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Speed: 12
+  Rampage: 0
+  ShootSound: {fileID: 8300000, guid: 2d8c6f75dcb2d704d952a43998c14f61, type: 3}
+  PointsDisplayPrefab: {fileID: 8642996006146712763, guid: b1b63fbae4b23cd4e937f47838db3127,
+    type: 3}

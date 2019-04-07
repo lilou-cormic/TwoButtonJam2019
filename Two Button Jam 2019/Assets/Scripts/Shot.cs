@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Shot : MonoBehaviour
+public abstract class Shot : MonoBehaviour
 {
     private Rigidbody2D rb;
 
     [SerializeField]
-    private float Speed = 5f;
+    private float Speed = 9f;
 
     [SerializeField]
     private bool Rampage = false;
@@ -25,19 +25,9 @@ public class Shot : MonoBehaviour
         SoundPlayer.Play(ShootSound);
     }
 
-    private void Update()
-    {
-        if (transform.position.y >= 10)
-        {
-            Destroy(gameObject);
-            return;
-        }
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        ScoreManager.AddPoints(1);
-        ScoreManager.IncrementMultiplier();
+        ManageTriggerEnter2D(collision);
 
         if (!Rampage)
         {
@@ -45,4 +35,6 @@ public class Shot : MonoBehaviour
             return;
         }
     }
+
+    protected abstract void ManageTriggerEnter2D(Collider2D collision);
 }

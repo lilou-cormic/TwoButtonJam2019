@@ -67,16 +67,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1403966481050967362, guid: 326488a7ccc42a74a99a671f82101f34,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1403966481050967362, guid: 326488a7ccc42a74a99a671f82101f34,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 0.2
-      objectReference: {fileID: 0}
     - target: {fileID: 260200044802040034, guid: 326488a7ccc42a74a99a671f82101f34,
         type: 3}
       propertyPath: Speed
@@ -92,6 +82,16 @@ PrefabInstance:
       propertyPath: ShootSound
       value: 
       objectReference: {fileID: 8300000, guid: 8159e2829ba3c27419f77fda2233ee8b, type: 3}
+    - target: {fileID: 4225827383489090894, guid: 326488a7ccc42a74a99a671f82101f34,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.4630798
+      objectReference: {fileID: 0}
+    - target: {fileID: 4225827383489090894, guid: 326488a7ccc42a74a99a671f82101f34,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.46287644
+      objectReference: {fileID: 0}
     - target: {fileID: 8644528157678580624, guid: 326488a7ccc42a74a99a671f82101f34,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -108,15 +108,30 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: fd543863264dd2e489672d3c5e3a86da,
         type: 3}
-    - target: {fileID: 4225827383489090894, guid: 326488a7ccc42a74a99a671f82101f34,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 0.4630798
-      objectReference: {fileID: 0}
-    - target: {fileID: 4225827383489090894, guid: 326488a7ccc42a74a99a671f82101f34,
+    - target: {fileID: 1403966481050967362, guid: 326488a7ccc42a74a99a671f82101f34,
         type: 3}
       propertyPath: m_Size.x
-      value: 0.46287644
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1403966481050967362, guid: 326488a7ccc42a74a99a671f82101f34,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1575217602907267892, guid: 326488a7ccc42a74a99a671f82101f34,
+        type: 3}
+      propertyPath: Speed
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1575217602907267892, guid: 326488a7ccc42a74a99a671f82101f34,
+        type: 3}
+      propertyPath: ShootSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 8159e2829ba3c27419f77fda2233ee8b, type: 3}
+    - target: {fileID: 1575217602907267892, guid: 326488a7ccc42a74a99a671f82101f34,
+        type: 3}
+      propertyPath: Rampage
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 326488a7ccc42a74a99a671f82101f34, type: 3}

@@ -10,19 +10,19 @@ public class UIScoreMultiplier : MonoBehaviour
 
     private void Awake()
     {
-        ScoreMultiplierText.text = "x00";
+        ScoreMultiplierText.text = "× 01";
     }
 
     private void Start()
     {
-        SetScoreText();
+        ScoreMultiplierText.text = "× 01";
 
         ScoreManager.ScoreChanged += ScoreManager_ScoreChanged;
     }
 
     private void ScoreManager_ScoreChanged()
     {
-        SetScoreText();
+        SetScoreMultiplierText();
     }
 
     private void OnDestroy()
@@ -30,8 +30,8 @@ public class UIScoreMultiplier : MonoBehaviour
         ScoreManager.ScoreChanged -= ScoreManager_ScoreChanged;
     }
 
-    private void SetScoreText()
+    private void SetScoreMultiplierText()
     {
-        ScoreMultiplierText.text = "× " + ScoreManager.ScoreMultiplier.ToString("00");
+        ScoreMultiplierText.text = $"× {ScoreManager.ScoreMultiplier:00}";
     }
 }

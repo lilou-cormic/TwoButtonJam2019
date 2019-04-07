@@ -22,11 +22,15 @@ public class ScoreManager : MonoBehaviour
         ScoreMultiplier = 1;
     }
 
-    public static void AddPoints(int points)
+    public static int AddPoints(int points)
     {
-        Score += points * ScoreMultiplier;
+        int pts = points * ScoreMultiplier;
+
+        Score += pts;
 
         ScoreChanged?.Invoke();
+
+        return pts;
     }
 
     public static void SetHighScore()
