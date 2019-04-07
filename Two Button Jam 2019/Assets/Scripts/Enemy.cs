@@ -11,6 +11,9 @@ public class Enemy : MonoBehaviour
     private AudioClip ExplosionSound = null;
 
     [SerializeField]
+    private GameObject ExplosionSmoke = null;
+
+    [SerializeField]
     private float Speed = 2f;
 
     private void Awake()
@@ -23,6 +26,8 @@ public class Enemy : MonoBehaviour
     {
         if (transform.position.y <= -2)
         {
+            ScoreManager.ResetScoreMultiplier();
+
             Destroy(gameObject);
             return;
         }
@@ -31,6 +36,9 @@ public class Enemy : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         SoundPlayer.Play(ExplosionSound);
+
+        var smoke = Instantiate(ExplosionSmoke, transform.position, Quaternion.identity);
+        Destroy(smoke, 0.5f);
 
         if (collision.gameObject.CompareTag("Player"))
         {

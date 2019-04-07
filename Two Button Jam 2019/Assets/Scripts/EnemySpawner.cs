@@ -13,6 +13,9 @@ public class EnemySpawner : MonoBehaviour
 
     private float _countDown = 1.5f;
 
+    private float _minCountDown = 1.5f;
+    private float _maxCountDown = 5f;
+
     private void Awake()
     {
         _countDown = Random.Range(1.5f, 3f);
@@ -42,10 +45,13 @@ public class EnemySpawner : MonoBehaviour
 
         if (_countDown <= 0)
         {
-            _countDown = Random.Range(3f, 5f);
+            _countDown = Random.Range(_minCountDown, _maxCountDown);
 
             Spawn();
         }
+
+        _minCountDown = Mathf.Min(_minCountDown - 0.01f * Time.deltaTime, 0.7f);
+        _maxCountDown = Mathf.Max(_maxCountDown - 0.005f * Time.deltaTime, 1f);
     }
 
     private void Spawn()

@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 4199202414581415769}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 10, y: 10, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4199202416486450762}
   m_RootOrder: 0
@@ -68,12 +68,12 @@ SpriteRenderer:
   m_SortingLayerID: 230030437
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0e7a5c3b197623347a76c7fb11b8f63b, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: ac0003e75f6950d49933e70047bdd0a7, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.04, y: 0.04}
+  m_Size: {x: 1.03, y: 0.84}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -89,7 +89,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4199202416486450762}
   - component: {fileID: 8649692830273621626}
-  - component: {fileID: 6139598906182211177}
+  - component: {fileID: 8765415953577541924}
   - component: {fileID: 2969844542917481141}
   m_Layer: 10
   m_Name: Enemy
@@ -134,8 +134,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &6139598906182211177
-BoxCollider2D:
+--- !u!60 &8765415953577541924
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -157,9 +157,13 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.4, y: 0.4}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0, y: 0.42}
+      - {x: -0.51, y: 0.03}
+      - {x: -0.39, y: -0.42}
+      - {x: 0.39, y: -0.42}
+      - {x: 0.51, y: 0.03}
 --- !u!114 &2969844542917481141
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -173,4 +177,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ExplosionSound: {fileID: 8300000, guid: c45cd9b772db1254c8b13e95aa4de3d2, type: 3}
+  ExplosionSmoke: {fileID: 6595835283536553288, guid: e4503a1affb51d34f9d81e98dfd34d0f,
+    type: 3}
   Speed: 2

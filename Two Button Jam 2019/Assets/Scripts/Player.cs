@@ -20,6 +20,9 @@ public class Player : MonoBehaviour
     private float _chargingThreshold = 0.1f;
     private float _bigShotThreshold = 0.5f;
 
+    private float _shootCoolDown = 0.2f;
+    private float _coolDownTimer = 0f;
+
     [SerializeField]
     private GameObject NormalShotPrefab = null;
     [SerializeField]
@@ -78,6 +81,11 @@ public class Player : MonoBehaviour
 
     private void ManageButton2()
     {
+        _coolDownTimer -= Time.deltaTime;
+
+        if (_coolDownTimer > 0)
+            return;
+
         if (Input.GetButtonDown("Button2"))
         {
             _button2Timer = 0;
@@ -87,9 +95,9 @@ public class Player : MonoBehaviour
             _button2Timer += Time.deltaTime;
 
             if (_button2Timer > _bigShotThreshold)
-                SpriteRenderer.color = Color.red;
+                SpriteRenderer.color = Color.green;
             else if (_button2Timer > _chargingThreshold)
-                SpriteRenderer.color = Color.magenta;
+                SpriteRenderer.color = Color.yellow;
         }
         else if (Input.GetButtonUp("Button2"))
         {
@@ -101,6 +109,7 @@ public class Player : MonoBehaviour
                 ShootNormal();
 
             _button2Timer = 0;
+            _coolDownTimer = _shootCoolDown;
         }
     }
 

@@ -7,6 +7,7 @@ public class ScoreManager : MonoBehaviour
 {
     public static int Score { get; private set; }
     public static int HighScore { get; private set; }
+    public static int ScoreMultiplier { get; private set; }
 
     public static event Action ScoreChanged;
 
@@ -18,11 +19,12 @@ public class ScoreManager : MonoBehaviour
     private void Start()
     {
         Score = 0;
+        ScoreMultiplier = 1;
     }
 
     public static void AddPoints(int points)
     {
-        Score += points;
+        Score += points * ScoreMultiplier;
 
         ScoreChanged?.Invoke();
     }
@@ -37,5 +39,20 @@ public class ScoreManager : MonoBehaviour
         }
 
         ScoreChanged?.Invoke();
+    }
+
+    public static void ResetScoreMultiplier()
+    {
+        ScoreMultiplier = 1;
+
+        ScoreChanged?.Invoke();
+    }
+
+    public static void IncrementMultiplier()
+    {
+        ScoreMultiplier++;
+
+        ScoreChanged?.Invoke();
+
     }
 }
