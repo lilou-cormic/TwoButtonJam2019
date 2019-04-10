@@ -50,7 +50,7 @@ public class Enemy : MonoBehaviour
         Destroy(smoke, 0.5f);
 
         if (collision.gameObject.CompareTag("Player"))
-            Player.TakeDamage(1);
+            Player.HitPlayer(1);
 
         Destroy(gameObject);
     }

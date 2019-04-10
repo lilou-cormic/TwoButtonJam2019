@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class EnemySpawner : MonoBehaviour
+public class EnemySpawner : Spawner
 {
     private static EnemyDef[] EnemyDefs = null;
 
@@ -11,15 +11,8 @@ public class EnemySpawner : MonoBehaviour
 
     private static int[] Positions = new int[] { -2, 0, 2 };
 
-    private float _countDown = 1.5f;
-
-    private float _minCountDown = 1.5f;
-    private float _maxCountDown = 5f;
-
     private void Awake()
     {
-        _countDown = Random.Range(1.5f, 3f);
-
         if (EnemyDefs == null)
             EnemyDefs = Resources.LoadAll<EnemyDef>("Enemies").ToArray();
 
@@ -39,22 +32,13 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
+    protected override void AjustCoolDown()
     {
-        _countDown -= Time.fixedDeltaTime;
-
-        if (_countDown <= 0)
-        {
-            _countDown = Random.Range(_minCountDown, _maxCountDown);
-
-            Spawn();
-        }
-
-        _minCountDown = Mathf.Min(_minCountDown - 0.01f * Time.deltaTime, 0.7f);
-        _maxCountDown = Mathf.Max(_maxCountDown - 0.005f * Time.deltaTime, 1f);
+        MinCountDown = Mathf.Min(MinCountDown - 0.01f * Time.deltaTime, 0.7f);
+        MaxCountDown = Mathf.Max(MaxCountDown - 0.005f * Time.deltaTime, 1f);
     }
 
-    private void Spawn()
+    protected override void Spawn()
     {
         Enemy enemyPrefab = EnemyPool[Random.Range(0, EnemyPool.Length)];
         int x = Positions[Random.Range(0, Positions.Length)];

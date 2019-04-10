@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class Player : MonoBehaviour
 {
@@ -24,6 +25,23 @@ public class Player : MonoBehaviour
     [SerializeField]
     private Sprite DamageSprite3 = null;
 
+    [SerializeField]
+    private GameObject Shield = null;
+
+    [SerializeField]
+    private GameObject ShieldPanel = null;
+
+    [SerializeField]
+    private TextMeshProUGUI ShieldCountDownText = null;
+
+    [SerializeField]
+    private AudioClip ShieldDownSound = null;
+
+    [SerializeField]
+    private GameObject WeapondPanel = null;
+    [SerializeField]
+    private TextMeshProUGUI WeaponCountDownText = null;
+
     public bool IsMoving { get; private set; } = true;
     public bool IsShooting { get; private set; } = false;
 
@@ -43,11 +61,16 @@ public class Player : MonoBehaviour
     private int _maxShots = 3;
     private int _shotsLeft = 3;
 
+    private bool _isShieldUp = false;
+    private float _shieldTime = 8f;
+    private float _shieldTimeLeft = 0f;
+
     [SerializeField]
     private GameObject NormalShotPrefab = null;
     [SerializeField]
     private GameObject BigShotPrefab = null;
 
+    private int _maxHitPoints = 4;
     private int HitPoints { get; set; } = 4;
 
     private void Awake()
@@ -60,7 +83,22 @@ public class Player : MonoBehaviour
     {
         _instance = this;
 
-        HitPoints = 4;
+        _direction = 1;
+
+        _button1Timer = 0;
+        _button2Timer = 0;
+
+        _isShieldUp = false;
+        _shieldTimeLeft = 0f;
+        Shield.SetActive(false);
+        ShieldPanel.SetActive(false);
+        ShieldCountDownText.text = "0.0";
+
+        WeapondPanel.SetActive(false);
+        WeaponCountDownText.text = "0.0";
+
+        HitPoints = _maxHitPoints;
+        SetDamageSprite();
 
         _shotsLeft = _maxShots;
         _coolDownTimer = 0;
@@ -77,19 +115,12 @@ public class Player : MonoBehaviour
 
         ManageButton2();
 
-        if (transform.position.x <= -2.7)
-        {
-            _direction = 1;
-            return;
-        }
+        ManageEdges();
 
-        if (transform.position.x >= 2.7)
-        {
-            _direction = -1;
-            return;
-        }
+        ManageShield();
     }
 
+    #region ManageButton1
     private void ManageButton1()
     {
         if (Input.GetButtonDown("Button1"))
@@ -111,7 +142,9 @@ public class Player : MonoBehaviour
             _button1Timer = 0;
         }
     }
+    #endregion
 
+    #region ManageButton2
     private void ManageButton2()
     {
         _coolDownTimer -= Time.deltaTime;
@@ -154,6 +187,39 @@ public class Player : MonoBehaviour
                 _coolDownTimer = _shootCoolDown;
         }
     }
+    #endregion
+
+    #region ManageEdges
+    private void ManageEdges()
+    {
+        if (transform.position.x <= -2.7)
+        {
+            _direction = 1;
+            return;
+        }
+
+        if (transform.position.x >= 2.7)
+        {
+            _direction = -1;
+            return;
+        }
+    }
+    #endregion
+
+    #region ManageShield
+    private void ManageShield()
+    {
+        if (_shieldTimeLeft > 0)
+        {
+            ShieldCountDownText.text = _shieldTimeLeft.ToString("0.0");
+
+            _shieldTimeLeft -= Time.deltaTime;
+
+            if (_shieldTimeLeft <= 0)
+                DropShield();
+        }
+    }
+    #endregion
 
     private void ShootNormal()
     {
@@ -184,20 +250,60 @@ public class Player : MonoBehaviour
             transform.position += Vector3.right * _direction * Time.deltaTime * _speed;
     }
 
-    public static void TakeDamage(int damage)
+    private void Hit(int damage)
     {
-        _instance.HitPoints -= damage;
+        if (_isShieldUp)
+        {
+            DropShield();
+            return;
+        }
 
-        if (_instance.HitPoints <= 0)
+        HitPoints -= damage;
+
+        if (HitPoints <= 0)
         {
             ScoreManager.SetHighScore();
             SceneManager.LoadScene("GameOver");
             return;
         }
 
-        _instance.SetDamageSprite();
+        SetDamageSprite();
 
-        _instance.Invinsibility.MakeInvinsible();
+        Invinsibility.MakeInvinsible();
+    }
+
+    private void Heal(int health)
+    {
+        if (HitPoints >= _maxHitPoints)
+            return;
+
+        HitPoints += health;
+
+        SetDamageSprite();
+    }
+
+    private void LiftShield()
+    {
+        _isShieldUp = true;
+
+        _shieldTimeLeft = _shieldTime;
+
+        Shield.SetActive(true);
+        ShieldCountDownText.text = _shieldTimeLeft.ToString("0.0");
+        ShieldPanel.SetActive(true);
+    }
+
+    private void DropShield()
+    {
+        SoundPlayer.Play(ShieldDownSound);
+
+        _isShieldUp = false;
+
+        _shieldTimeLeft = 0;
+
+        Shield.SetActive(false);
+        ShieldCountDownText.text = "0.0";
+        ShieldPanel.SetActive(false);
     }
 
     private void SetDamageSprite()
@@ -220,5 +326,20 @@ public class Player : MonoBehaviour
                 DamageSpriteRenderer.sprite = null;
                 break;
         }
+    }
+
+    public static void HitPlayer(int damage)
+    {
+        _instance.Hit(damage);
+    }
+
+    public static void HealPlayer(int health)
+    {
+        _instance.Heal(health);
+    }
+
+    public static void ShieldPlayer()
+    {
+        _instance.LiftShield();
     }
 }

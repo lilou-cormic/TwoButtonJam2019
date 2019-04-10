@@ -22,6 +22,6 @@ public class EnemyShot : Shot
         SoundPlayer.Play(ExplosionSound);
 
         if (collision.gameObject.CompareTag("Player"))
-            Player.TakeDamage(1);
+            Player.HitPlayer(1);
     }
 }

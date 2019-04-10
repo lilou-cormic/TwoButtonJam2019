@@ -1084,12 +1084,13 @@ PrefabInstance:
       propertyPath: m_text
       value: "Contains music \xA92019 Joshua McLean (mrjoshuamclean.com)\r\nLicensed
         under Creative Commons Attribution-ShareAlike 4.0 International\n\nContains
-        assets from Kenney (kenney.nl)\nLicensed under Creative Commons CC0 1.0 Universal"
+        fonts by Emmeran RICHARD (www.emmeranrichard.fr)\n\nContains assets from Kenney
+        (kenney.nl)\nLicensed under Creative Commons CC0 1.0 Universal"
       objectReference: {fileID: 0}
     - target: {fileID: 2048037261337923964, guid: 6e216d8a362c8cb4fb4d3a4e25d5b024,
         type: 3}
       propertyPath: m_fontColor32.rgba
-      value: 4294967295
+      value: 4287464773
       objectReference: {fileID: 0}
     - target: {fileID: 2048037261337923964, guid: 6e216d8a362c8cb4fb4d3a4e25d5b024,
         type: 3}
@@ -1099,22 +1100,22 @@ PrefabInstance:
     - target: {fileID: 2048037261337923964, guid: 6e216d8a362c8cb4fb4d3a4e25d5b024,
         type: 3}
       propertyPath: m_textInfo.characterCount
-      value: 220
+      value: 279
       objectReference: {fileID: 0}
     - target: {fileID: 2048037261337923964, guid: 6e216d8a362c8cb4fb4d3a4e25d5b024,
         type: 3}
       propertyPath: m_textInfo.spaceCount
-      value: 25
+      value: 32
       objectReference: {fileID: 0}
     - target: {fileID: 2048037261337923964, guid: 6e216d8a362c8cb4fb4d3a4e25d5b024,
         type: 3}
       propertyPath: m_textInfo.wordCount
-      value: 29
+      value: 37
       objectReference: {fileID: 0}
     - target: {fileID: 2048037261337923964, guid: 6e216d8a362c8cb4fb4d3a4e25d5b024,
         type: 3}
       propertyPath: m_textInfo.lineCount
-      value: 5
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 2048037261337923964, guid: 6e216d8a362c8cb4fb4d3a4e25d5b024,
         type: 3}
@@ -1124,12 +1125,12 @@ PrefabInstance:
     - target: {fileID: 2048037261337923964, guid: 6e216d8a362c8cb4fb4d3a4e25d5b024,
         type: 3}
       propertyPath: m_fontSize
-      value: 20
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 2048037261337923964, guid: 6e216d8a362c8cb4fb4d3a4e25d5b024,
         type: 3}
       propertyPath: m_fontSizeBase
-      value: 20
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 2048037261337923964, guid: 6e216d8a362c8cb4fb4d3a4e25d5b024,
         type: 3}
