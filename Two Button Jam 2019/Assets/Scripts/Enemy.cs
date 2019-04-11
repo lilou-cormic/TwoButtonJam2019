@@ -62,7 +62,7 @@ public class Enemy : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
-            Player.HitPlayer(2);
+            Player.HitPlayer(1);
 
         Die();
     }
