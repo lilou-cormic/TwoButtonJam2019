@@ -13,6 +13,8 @@ public class EnemySpawner : Spawner
 
     private void Awake()
     {
+        MaxCountDown /= GameOptions.GameSpeed;
+
         if (EnemyDefs == null)
             EnemyDefs = Resources.LoadAll<EnemyDef>("Enemies").ToArray();
 

@@ -7,7 +7,7 @@ public class BackgroundMovement : MonoBehaviour
 {
     private MeshRenderer meshRenderer;
 
-    private float Speed = 1f;
+    private float Speed = 1.2f;
 
     private void Start()
     {

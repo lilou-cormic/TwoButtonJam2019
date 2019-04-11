@@ -155,4 +155,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 986e32a1ff7903b419dff9388c273f3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MovementVector: {x: 0, y: -4, z: 0}
+  MovementVector: {x: 0, y: -4.5, z: 0}
+  UseGameSpeed: 0

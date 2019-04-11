@@ -191,8 +191,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 64180312}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.571, y: 4, z: 0}
-  m_LocalScale: {x: 21.86156, y: 300, z: 0}
+  m_LocalPosition: {x: -8.637, y: 4, z: 0}
+  m_LocalScale: {x: 275.14963, y: 300, z: 0}
   m_Children: []
   m_Father: {fileID: 218277561}
   m_RootOrder: 7
@@ -634,7 +634,7 @@ GameObject:
   - component: {fileID: 429773009}
   - component: {fileID: 429773008}
   m_Layer: 5
-  m_Name: WeaponPanel
+  m_Name: PowerPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -973,7 +973,7 @@ GameObject:
   - component: {fileID: 789817269}
   - component: {fileID: 789817268}
   m_Layer: 0
-  m_Name: WeaponIcon
+  m_Name: PowerIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2107,8 +2107,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1713954495}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.571, y: 4, z: 0}
-  m_LocalScale: {x: 21.86156, y: 300, z: 0}
+  m_LocalPosition: {x: 8.608, y: 4, z: 0}
+  m_LocalScale: {x: 273.8262, y: 300, z: 0}
   m_Children: []
   m_Father: {fileID: 218277561}
   m_RootOrder: 6
@@ -2578,7 +2578,7 @@ PrefabInstance:
     - target: {fileID: 2048037261337923906, guid: 6e216d8a362c8cb4fb4d3a4e25d5b024,
         type: 3}
       propertyPath: m_Name
-      value: WeaponCountDownText
+      value: PowerCountDownText
       objectReference: {fileID: 0}
     - target: {fileID: 2048037261337923965, guid: 6e216d8a362c8cb4fb4d3a4e25d5b024,
         type: 3}
@@ -3228,5 +3228,15 @@ PrefabInstance:
       propertyPath: ShieldCountDownText
       value: 
       objectReference: {fileID: 513053202}
+    - target: {fileID: 4105364724728551240, guid: 242574ff47717b746a15bcefa68bc7ae,
+        type: 3}
+      propertyPath: PowerPanel
+      value: 
+      objectReference: {fileID: 429773006}
+    - target: {fileID: 4105364724728551240, guid: 242574ff47717b746a15bcefa68bc7ae,
+        type: 3}
+      propertyPath: PowerCountDownText
+      value: 
+      objectReference: {fileID: 300525166}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 242574ff47717b746a15bcefa68bc7ae, type: 3}

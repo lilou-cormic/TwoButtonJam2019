@@ -26,6 +26,8 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     private LayerMask PlayerLayer = 0;
 
+    public bool IsDead { get; private set; } = false;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -42,17 +44,27 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void Die()
     {
+        if (IsDead)
+            return;
+
+        IsDead = true;
+
         SoundPlayer.Play(ExplosionSound);
 
         var smoke = Instantiate(ExplosionSmoke, transform.position, Quaternion.identity);
         Destroy(smoke, 0.5f);
 
-        if (collision.gameObject.CompareTag("Player"))
-            Player.HitPlayer(1);
-
         Destroy(gameObject);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+            Player.HitPlayer(2);
+
+        Die();
     }
 
     private void FixedUpdate()

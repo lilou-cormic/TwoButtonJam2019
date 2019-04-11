@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 5146737931836049376}
   - component: {fileID: 2444194701878781327}
   - component: {fileID: 4663289509637886299}
-  - component: {fileID: 521256919350121896}
+  - component: {fileID: 3426438088483112056}
   - component: {fileID: 759745543189557604}
   m_Layer: 14
-  m_Name: WeaponPickup
+  m_Name: PowerPickup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -72,7 +72,7 @@ SpriteRenderer:
   m_SortingLayerID: 1483054111
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: cad8a2b1d1630264e9d8197f466439f5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 36cec45408f61fc42a2402db88f77de8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -130,7 +130,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!114 &521256919350121896
+--- !u!114 &3426438088483112056
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -142,7 +142,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89cc0c12144764e48a1aaabf64251d82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PickupSound: {fileID: 0}
+  PickupSound: {fileID: 8300000, guid: f17de0e922bb3f446aae6641d7b463fe, type: 3}
 --- !u!114 &759745543189557604
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -155,4 +155,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 986e32a1ff7903b419dff9388c273f3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MovementVector: {x: 0, y: -4, z: 0}
+  MovementVector: {x: 0, y: -4.5, z: 0}
+  UseGameSpeed: 0

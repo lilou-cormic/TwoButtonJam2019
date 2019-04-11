@@ -24,6 +24,6 @@ public class SoundPlayer : MonoBehaviour
     public static void Play(AudioClip clip)
     {
         if (clip != null)
-            Instance._audioSource.PlayOneShot(clip);
+            Instance?._audioSource?.PlayOneShot(clip);
     }
 }

@@ -18,7 +18,7 @@ public abstract class Shot : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        rb.velocity = Vector2.up * Speed;
+        rb.velocity = transform.up * Speed;
     }
     private void Start()
     {

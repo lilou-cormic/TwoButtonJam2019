@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WeaponPickup : Item
+public class PowerPickup : Item
 {
     protected override void OnPickup(Collider2D collision)
     {
-        
+        Player.PowerPlayer();
     }
 }

@@ -163,8 +163,10 @@ MonoBehaviour:
   ShieldPanel: {fileID: 0}
   ShieldCountDownText: {fileID: 0}
   ShieldDownSound: {fileID: 8300000, guid: ad9fa43a60c15434dac04be343aa2c85, type: 3}
-  WeapondPanel: {fileID: 0}
-  WeaponCountDownText: {fileID: 0}
+  PowerPanel: {fileID: 0}
+  PowerCountDownText: {fileID: 0}
+  PowerDownSound: {fileID: 8300000, guid: ad9fa43a60c15434dac04be343aa2c85, type: 3}
+  GameOverSound: {fileID: 8300000, guid: c8c973e173146c54cbf82df694084207, type: 3}
   NormalShotPrefab: {fileID: 6722363601476649279, guid: 326488a7ccc42a74a99a671f82101f34,
     type: 3}
   BigShotPrefab: {fileID: 4376879563983587082, guid: 5a649aee3f82ae44cbfdca262cc9112b,

@@ -46,3 +46,4 @@ MonoBehaviour:
   PickupPrefabs:
   - {fileID: 5096604942868096039, guid: be7c1e6b9fb79104a988d2b7deb1bcb4, type: 3}
   - {fileID: 5540995519056814566, guid: f718b248fd0096b42ad387903c686ffb, type: 3}
+  - {fileID: 3426438088483112056, guid: 0ab3853a8682c6b42a04cbd8e82775d3, type: 3}

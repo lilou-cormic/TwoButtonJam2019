@@ -38,14 +38,27 @@ public class Player : MonoBehaviour
     private AudioClip ShieldDownSound = null;
 
     [SerializeField]
-    private GameObject WeapondPanel = null;
+    private GameObject PowerPanel = null;
+
     [SerializeField]
-    private TextMeshProUGUI WeaponCountDownText = null;
+    private TextMeshProUGUI PowerCountDownText = null;
+
+    [SerializeField]
+    private AudioClip PowerDownSound = null;
+
+    [SerializeField]
+    private AudioClip GameOverSound = null;
+
+    [SerializeField]
+    private GameObject NormalShotPrefab = null;
+
+    [SerializeField]
+    private GameObject BigShotPrefab = null;
 
     public bool IsMoving { get; private set; } = true;
     public bool IsShooting { get; private set; } = false;
 
-    private float _speed = 2.5f;
+    private float _speed = 3f;
     private int _direction = 1;
 
     private float _button1Timer = 0;
@@ -62,16 +75,17 @@ public class Player : MonoBehaviour
     private int _shotsLeft = 3;
 
     private bool _isShieldUp = false;
-    private float _shieldTime = 8f;
+    private float _shieldTime = 10f;
     private float _shieldTimeLeft = 0f;
 
-    [SerializeField]
-    private GameObject NormalShotPrefab = null;
-    [SerializeField]
-    private GameObject BigShotPrefab = null;
+    private bool _isPowerUp = false;
+    private float _powerTime = 10f;
+    private float _powerTimeLeft = 0f;
 
     private int _maxHitPoints = 4;
     private int HitPoints { get; set; } = 4;
+
+    private bool IsGameOver = false;
 
     private void Awake()
     {
@@ -81,6 +95,8 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
+        IsGameOver = false;
+
         _instance = this;
 
         _direction = 1;
@@ -94,8 +110,10 @@ public class Player : MonoBehaviour
         ShieldPanel.SetActive(false);
         ShieldCountDownText.text = "0.0";
 
-        WeapondPanel.SetActive(false);
-        WeaponCountDownText.text = "0.0";
+        _isPowerUp = false;
+        _powerTimeLeft = 0f;
+        PowerPanel.SetActive(false);
+        PowerCountDownText.text = "0.0";
 
         HitPoints = _maxHitPoints;
         SetDamageSprite();
@@ -111,6 +129,9 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
+        if (IsGameOver)
+            return;
+
         ManageButton1();
 
         ManageButton2();
@@ -118,6 +139,8 @@ public class Player : MonoBehaviour
         ManageEdges();
 
         ManageShield();
+
+        ManagePower();
     }
 
     #region ManageButton1
@@ -221,6 +244,21 @@ public class Player : MonoBehaviour
     }
     #endregion
 
+    #region ManagePower
+    private void ManagePower()
+    {
+        if (_powerTimeLeft > 0)
+        {
+            PowerCountDownText.text = _powerTimeLeft.ToString("0.0");
+
+            _powerTimeLeft -= Time.deltaTime;
+
+            if (_powerTimeLeft <= 0)
+                DropPower();
+        }
+    }
+    #endregion
+
     private void ShootNormal()
     {
         if (_shotsLeft > 0)
@@ -242,6 +280,12 @@ public class Player : MonoBehaviour
     private void Shoot(GameObject shotPrefab)
     {
         Instantiate(shotPrefab, transform.position, Quaternion.identity);
+
+        if (_isPowerUp)
+        {
+            Instantiate(shotPrefab, transform.position, Quaternion.Euler(0, 0, 15));
+            Instantiate(shotPrefab, transform.position, Quaternion.Euler(0, 0, -15));
+        }
     }
 
     private void FixedUpdate()
@@ -252,6 +296,9 @@ public class Player : MonoBehaviour
 
     private void Hit(int damage)
     {
+        if (IsGameOver)
+            return;
+
         if (_isShieldUp)
         {
             DropShield();
@@ -262,14 +309,25 @@ public class Player : MonoBehaviour
 
         if (HitPoints <= 0)
         {
-            ScoreManager.SetHighScore();
-            SceneManager.LoadScene("GameOver");
+            SoundPlayer.Play(GameOverSound);
+            StartCoroutine(GameOver());
             return;
         }
 
         SetDamageSprite();
 
         Invinsibility.MakeInvinsible();
+    }
+
+    private IEnumerator GameOver()
+    {
+        ScoreManager.SetHighScore();
+        IsGameOver = true;
+        IsMoving = false;
+
+        yield return new WaitForSeconds(0.5f);
+
+        SceneManager.LoadScene("GameOver");
     }
 
     private void Heal(int health)
@@ -304,6 +362,28 @@ public class Player : MonoBehaviour
         Shield.SetActive(false);
         ShieldCountDownText.text = "0.0";
         ShieldPanel.SetActive(false);
+    }
+
+    private void LiftPower()
+    {
+        _isPowerUp = true;
+
+        _powerTimeLeft = _powerTime;
+
+        PowerCountDownText.text = _powerTimeLeft.ToString("0.0");
+        PowerPanel.SetActive(true);
+    }
+
+    private void DropPower()
+    {
+        SoundPlayer.Play(PowerDownSound);
+
+        _isPowerUp = false;
+
+        _powerTimeLeft = 0;
+
+        PowerCountDownText.text = "0.0";
+        PowerPanel.SetActive(false);
     }
 
     private void SetDamageSprite()
@@ -341,5 +421,10 @@ public class Player : MonoBehaviour
     public static void ShieldPlayer()
     {
         _instance.LiftShield();
+    }
+
+    public static void PowerPlayer()
+    {
+        _instance.LiftPower();
     }
 }

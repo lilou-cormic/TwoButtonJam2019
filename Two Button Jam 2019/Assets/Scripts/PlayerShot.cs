@@ -23,8 +23,10 @@ public class PlayerShot : Shot
 
         Enemy enemy = collision.GetComponent<Enemy>();
 
-        if (enemy != null)
+        if (enemy != null && !enemy.IsDead)
         {
+            enemy.Die();
+
             int pts = ScoreManager.AddPoints(enemy.Points);
             var uIPoints = Instantiate(PointsDisplayPrefab, collision.transform.position + Vector3.up * 0.5f, Quaternion.identity);
             uIPoints.SetPointsText(pts);
