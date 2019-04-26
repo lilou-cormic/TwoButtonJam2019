@@ -6,7 +6,7 @@
 
 https://lilou-cormic.itch.io/space-out
 
-Game created by lilou_cormic for 8 Bits to Infinity ~ Two Button Jam (Apr. 2019)
+Game created by lilou_cormic for [8 Bits to Infinity ~ Two Button Jam (Apr. 2019)](https://itch.io/jam/2buttonjam)
 
 Contains music ©2019 Joshua McLean (www.mrjoshuamclean.com) Licensed under Creative Commons Attribution-ShareAlike 4.0 International
 
