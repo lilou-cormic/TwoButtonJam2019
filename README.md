@@ -1,10 +1,12 @@
-# TwoButtonJam2019
+## TwoButtonJam2019
 
-Space Out
+# Space Out
+
+![](Two%20Button%20Jam%202019/Cover.png)
 
 Game created by lilou_cormic for 8 Bits to Infinity ~ Two Button Jam (Apr. 2019)
 
-Contains music ©2019 Joshua McLean (mrjoshuamclean.com) Licensed under Creative Commons Attribution-ShareAlike 4.0 International
+Contains music ©2019 Joshua McLean (www.mrjoshuamclean.com) Licensed under Creative Commons Attribution-ShareAlike 4.0 International
 
 Contains fonts ©2014 Emmeran RICHARD (www.emmeranrichard.fr)
 
